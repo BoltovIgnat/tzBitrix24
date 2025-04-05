@@ -26,9 +26,7 @@
         <script>
         let Groups = '.$jsGroups.';
         let isAdmin = Groups.includes(`1`);
-        BX.ready(function () {
-            console.log(`'.$path.'`);
-        });
+       
         BX.addCustomEvent("Grid::ready", function (gridData) {
             if(!isAdmin){
                 let filter = BX.Main.filterManager.getById(gridData.containerId);
