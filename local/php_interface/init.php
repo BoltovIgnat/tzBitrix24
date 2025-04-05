@@ -21,12 +21,13 @@
 
     $arUser = $rsUser->Fetch();
     $varFIO = $arUser['LAST_NAME'] . ' ' . $arUser['NAME'];
-    $assetManager->addString('
+    if ($path == '/crm/company/list/'){
+        $assetManager->addString('
         <script>
         let Groups = '.$jsGroups.';
         let isAdmin = Groups.includes(`1`);
         BX.ready(function () {
-            console.log(Groups);
+            console.log(`'.$path.'`);
         });
         BX.addCustomEvent("Grid::ready", function (gridData) {
             if(!isAdmin){
@@ -62,6 +63,8 @@
         });
         </script>
     ');
+    }
+
 
 });
 
